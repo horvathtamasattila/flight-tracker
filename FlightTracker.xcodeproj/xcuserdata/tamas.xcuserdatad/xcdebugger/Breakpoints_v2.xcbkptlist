@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "ABD7D5B9-37E9-4A5C-9296-53CE219AC023"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC3B4662-FD44-4416-9327-919D56DB23EC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlightTracker/ViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "searchResultRowDidTap(result:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BC3B4662-FD44-4416-9327-919D56DB23EC - 4dec71c6c4797be5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FlightTracker.MapViewModel.searchResultRowDidTap(result: Swift.String) -&gt; ()"
+                  moduleName = "FlightTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tamas/Documents/sources/FlightTracker/FlightTracker/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "BC3B4662-FD44-4416-9327-919D56DB23EC - 4dec71c6c4797be5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FlightTracker.MapViewModel.searchResultRowDidTap(result: Swift.String) -&gt; ()"
+                  moduleName = "FlightTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tamas/Documents/sources/FlightTracker/FlightTracker/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
