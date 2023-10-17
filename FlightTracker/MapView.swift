@@ -18,18 +18,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         viewModel.$selectedCities
             .filter { !$0.isEmpty }
             .sink { cities in
-                if cities.count >= 2 {
-                    unownedSelf.mapView.removeAnnotation(unownedSelf.mapView.annotations.last!)
-                    unownedSelf.mapView.removeOverlay(unownedSelf.mapView.overlays.last!)
+                if let _ = (unownedSelf.mapView.overlays.first(where: { $0 is MKPolyline })) as? MKPolyline {
+                    unownedSelf.mapView.removeAnnotations(unownedSelf.mapView.annotations)
+                    unownedSelf.mapView.removeOverlays(unownedSelf.mapView.overlays)
                 }
-
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = CLLocationCoordinate2D(latitude: cities.last!.lat, longitude: cities.last!.lng)
-                annotation.title = cities.last!.name
-                unownedSelf.mapView.addAnnotation(annotation)
+                for city in cities {
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = CLLocationCoordinate2D(latitude: city.lat, longitude: city.lng)
+                    annotation.title = city.name
+                    unownedSelf.mapView.addAnnotation(annotation)
+                }
 
                 if cities.count >= 2 {
                     let polyline = MKGeodesicPolyline(coordinates: cities.map { CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lng) }, count: cities.count)
+                    print(polyline.coordinates)
                     unownedSelf.mapView.addOverlay(polyline)
                 }
             }

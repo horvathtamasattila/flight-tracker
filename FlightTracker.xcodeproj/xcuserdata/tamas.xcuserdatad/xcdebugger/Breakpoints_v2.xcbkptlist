@@ -92,8 +92,8 @@
             filePath = "FlightTracker/MapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "makeUIViewController(context:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -166,14 +166,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "624F8875-C9CA-411E-AA69-B56A7ECC74B2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlightTracker/MapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "init()"
             landmarkType = "7">
             <Locations>
@@ -222,6 +222,36 @@
                   endingLineNumber = "29"
                   offsetFromSymbolStart = "8">
                </Location>
+               <Location
+                  uuid = "624F8875-C9CA-411E-AA69-B56A7ECC74B2 - 45564cdfdb66d2b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;FlightTracker.City&gt;) -&gt; () in FlightTracker.MapViewController.init() -&gt; FlightTracker.MapViewController"
+                  moduleName = "FlightTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tamas/Documents/sources/FlightTracker/FlightTracker/MapView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "1580">
+               </Location>
+               <Location
+                  uuid = "624F8875-C9CA-411E-AA69-B56A7ECC74B2 - 32a845272c1c4cbe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (FlightTracker.City) -&gt; __C.CLLocationCoordinate2D in closure #2 (Swift.Array&lt;FlightTracker.City&gt;) -&gt; () in FlightTracker.MapViewController.init() -&gt; FlightTracker.MapViewController"
+                  moduleName = "FlightTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tamas/Documents/sources/FlightTracker/FlightTracker/MapView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "8">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -229,46 +259,78 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3DDBE0C2-73E2-4D44-88C9-37C9D2E581EA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlightTracker/MapView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "mapView(_:rendererFor:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96AB6826-E8F5-4FAD-A1E7-F84C8AEF54AE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlightTracker/MapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "mapView(_:rendererFor:)"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "coordinates"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7FC72178-729D-4832-9758-906317189167"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlightTracker/MapView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "init()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "3DDBE0C2-73E2-4D44-88C9-37C9D2E581EA - e77920d2d15a65d6"
+                  uuid = "7FC72178-729D-4832-9758-906317189167 - 45564cdfdb66d29a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "FlightTracker.MapViewController.mapView(_: __C.MKMapView, rendererFor: __C.MKOverlay) -&gt; __C.MKOverlayRenderer"
+                  symbolName = "closure #2 (Swift.Array&lt;FlightTracker.City&gt;) -&gt; () in FlightTracker.MapViewController.init() -&gt; FlightTracker.MapViewController"
                   moduleName = "FlightTracker"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tamas/Documents/sources/FlightTracker/FlightTracker/MapView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "244">
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "2244">
                </Location>
                <Location
-                  uuid = "3DDBE0C2-73E2-4D44-88C9-37C9D2E581EA - e77920d2d15a65d6"
+                  uuid = "7FC72178-729D-4832-9758-906317189167 - 45564cdfdb66d29a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "FlightTracker.MapViewController.mapView(_: __C.MKMapView, rendererFor: __C.MKOverlay) -&gt; __C.MKOverlayRenderer"
+                  symbolName = "closure #2 (Swift.Array&lt;FlightTracker.City&gt;) -&gt; () in FlightTracker.MapViewController.init() -&gt; FlightTracker.MapViewController"
                   moduleName = "FlightTracker"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tamas/Documents/sources/FlightTracker/FlightTracker/MapView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "208">
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "2268">
                </Location>
             </Locations>
          </BreakpointContent>
