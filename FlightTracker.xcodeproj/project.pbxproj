@@ -16,6 +16,8 @@
 		029DA9162AD6C30A006D89BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029DA9152AD6C30A006D89BF /* Preview Assets.xcassets */; };
 		029DA91D2AD6C7E7006D89BF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DA91C2AD6C7E7006D89BF /* MapView.swift */; };
 		029DA91F2AD9779E006D89BF /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DA91E2AD9779E006D89BF /* Timer.swift */; };
+		02FAE2F82ADE82EA00BA2AFA /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE2F72ADE82EA00BA2AFA /* City.swift */; };
+		02FAE2FA2ADE8CF800BA2AFA /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 02FAE2F92ADE8CF800BA2AFA /* Cities.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		029DA9152AD6C30A006D89BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		029DA91C2AD6C7E7006D89BF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		029DA91E2AD9779E006D89BF /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		02FAE2F72ADE82EA00BA2AFA /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		02FAE2F92ADE8CF800BA2AFA /* Cities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 				028A08E72ADD641B00DC1F57 /* ViewModel.swift */,
 				028A08E92ADD6E2E00DC1F57 /* SearchBar.swift */,
 				028A08EB2ADD739100DC1F57 /* SearchResultElements.swift */,
+				02FAE2F72ADE82EA00BA2AFA /* City.swift */,
+				02FAE2F92ADE8CF800BA2AFA /* Cities.json */,
 			);
 			path = FlightTracker;
 			sourceTree = "<group>";
@@ -140,6 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02FAE2FA2ADE8CF800BA2AFA /* Cities.json in Resources */,
 				029DA9162AD6C30A006D89BF /* Preview Assets.xcassets in Resources */,
 				029DA9132AD6C30A006D89BF /* Assets.xcassets in Resources */,
 			);
@@ -158,6 +165,7 @@
 				029DA91D2AD6C7E7006D89BF /* MapView.swift in Sources */,
 				029DA90F2AD6C309006D89BF /* FlightTrackerApp.swift in Sources */,
 				029DA91F2AD9779E006D89BF /* Timer.swift in Sources */,
+				02FAE2F82ADE82EA00BA2AFA /* City.swift in Sources */,
 				028A08EA2ADD6E2E00DC1F57 /* SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

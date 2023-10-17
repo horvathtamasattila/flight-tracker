@@ -13,11 +13,22 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.mapView = MKMapView()
         self.polyline = MKGeodesicPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)
         super.init(nibName: nil, bundle: nil)
+        mapView.delegate = self
         view = mapView
 
-        viewModel.$selectedResults
-            .sink {
-                print($0)
+        unowned let unownedSelf = self
+        viewModel.$selectedCities
+            .filter { !$0.isEmpty }
+            .sink { cities in
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2D(latitude: cities.last!.lat, longitude: cities.last!.lng)
+                annotation.title = cities.last!.name
+                unownedSelf.mapView.addAnnotation(annotation)
+
+                if cities.count >= 2 {
+                    let polyline = MKGeodesicPolyline(coordinates: cities.map { CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lng) }, count: cities.count)
+                    unownedSelf.mapView.addOverlay(polyline)
+                }
             }
             .store(in: &cancellables)
     }

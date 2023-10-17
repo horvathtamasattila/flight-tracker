@@ -27,8 +27,7 @@ struct ContentView: View {
                 isEditing: $viewModel.isEditingSearchbar,
                 text: $viewModel.searchText,
                 placeholder: "Search",
-                deleteDidTap: viewModel.deleteDidTap,
-                returnDidTap: { viewModel.searchResultRowDidTap(result: viewModel.searchText) }
+                deleteDidTap: viewModel.deleteDidTap
               )
                   .background(Color.green)
               SearchResultElementView(
