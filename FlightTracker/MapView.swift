@@ -1,58 +1,74 @@
 import SwiftUI
 import MapKit
 
-struct MapView: UIViewRepresentable {
-  let time: Int
-  let lineCoordinates: [CLLocationCoordinate2D]
+class MapViewController: UIViewController, MKMapViewDelegate {
+    let mapView: MKMapView
+    let polyline: MKGeodesicPolyline
 
-  func makeUIView(context: Context) -> MKMapView {
-    let mapView = MKMapView()
-    mapView.delegate = context.coordinator
-    mapView.region = MKCoordinateRegion(coordinates: lineCoordinates)
-
-    let polyline = MKGeodesicPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)
-      mapView.addOverlay(polyline)
-      let annotation = MKPointAnnotation()
-      annotation.coordinate = polyline.coordinates[polyline.coordinates.count / 100 * time]
-      annotation.title = "Current position"
-      mapView.addAnnotation(annotation)
-
-    return mapView
-  }
-
-  func updateUIView(_ view: MKMapView, context: Context) {
-      view.removeAnnotation(view.annotations.last!)
-      let polyline = (view.overlays.first(where: { $0 is MKPolyline })) as! MKPolyline
-      let annotation = MKPointAnnotation()
-      annotation.coordinate = polyline.coordinates[polyline.coordinates.count / 100 * time]
-      annotation.title = "Current position"
-      view.addAnnotation(annotation)
-      print(time)
-  }
-
-  func makeCoordinator() -> Coordinator {
-    Coordinator(self)
-  }
-
-}
-
-class Coordinator: NSObject, MKMapViewDelegate {
-  var parent: MapView
-
-  init(_ parent: MapView) {
-    self.parent = parent
-  }
-
-  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-    if let routePolyline = overlay as? MKPolyline {
-      let renderer = MKPolylineRenderer(polyline: routePolyline)
-      renderer.strokeColor = UIColor.systemBlue
-      renderer.lineWidth = 10
-      return renderer
+    init(time: Int, lineCoordinates: [CLLocationCoordinate2D]) {
+        self.mapView = MKMapView()
+        self.polyline = MKGeodesicPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)
+        super.init(nibName: nil, bundle: nil)
+        view = mapView
     }
-    return MKOverlayRenderer()
-  }
+
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+      if let routePolyline = overlay as? MKPolyline {
+        let renderer = MKPolylineRenderer(polyline: routePolyline)
+        renderer.strokeColor = UIColor.systemBlue
+        renderer.lineWidth = 10
+        return renderer
+      }
+      return MKOverlayRenderer()
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
 }
+
+struct MapView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = MapViewController
+
+    let time: Int
+    let lineCoordinates: [CLLocationCoordinate2D]
+
+    func makeUIViewController(context _: Context) -> MapViewController {
+        return MapViewController(time: time, lineCoordinates: lineCoordinates)
+    }
+
+    func updateUIViewController(_ uiViewController: MapViewController, context: Context) { }
+}
+
+//struct MapView: UIViewRepresentable {
+//  let time: Int
+//  let lineCoordinates: [CLLocationCoordinate2D]
+//
+//  func makeUIView(context: Context) -> MKMapView {
+//    let mapView = MKMapView()
+//    mapView.delegate = context.coordinator
+//    mapView.region = MKCoordinateRegion(coordinates: lineCoordinates)
+//
+//    let polyline = MKGeodesicPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)
+//      mapView.addOverlay(polyline)
+//      let annotation = MKPointAnnotation()
+//      annotation.coordinate = polyline.coordinates[polyline.coordinates.count / 100 * time]
+//      annotation.title = "Current position"
+//      mapView.addAnnotation(annotation)
+//
+//    return mapView
+//  }
+//
+//  func updateUIView(_ view: MKMapView, context: Context) {
+//      view.removeAnnotation(view.annotations.last!)
+//      let polyline = (view.overlays.first(where: { $0 is MKPolyline })) as! MKPolyline
+//      let annotation = MKPointAnnotation()
+//      annotation.coordinate = polyline.coordinates[polyline.coordinates.count / 100 * time]
+//      annotation.title = "Current position"
+//      view.addAnnotation(annotation)
+//      print(time)
+//  }
+//
+//}
 
 extension MKCoordinateRegion {
     init(coordinates: [CLLocationCoordinate2D], spanMultiplier: CLLocationDistance = 1.3) {
