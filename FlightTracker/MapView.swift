@@ -4,14 +4,12 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     let mapView: MKMapView
-    let polyline: MKGeodesicPolyline
     let viewModel = MapViewModel.shared
 
     var cancellables: Set<AnyCancellable> = []
 
-    init(time: Int, lineCoordinates: [CLLocationCoordinate2D]) {
+    init() {
         self.mapView = MKMapView()
-        self.polyline = MKGeodesicPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)
         super.init(nibName: nil, bundle: nil)
         mapView.delegate = self
         view = mapView
@@ -20,6 +18,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         viewModel.$selectedCities
             .filter { !$0.isEmpty }
             .sink { cities in
+                if cities.count >= 2 {
+                    unownedSelf.mapView.removeAnnotation(unownedSelf.mapView.annotations.last!)
+                    unownedSelf.mapView.removeOverlay(unownedSelf.mapView.overlays.last!)
+                }
+
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = CLLocationCoordinate2D(latitude: cities.last!.lat, longitude: cities.last!.lng)
                 annotation.title = cities.last!.name
@@ -50,11 +53,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 struct MapView: UIViewControllerRepresentable {
     typealias UIViewControllerType = MapViewController
 
-    let time: Int
-    let lineCoordinates: [CLLocationCoordinate2D]
-
     func makeUIViewController(context _: Context) -> MapViewController {
-        return MapViewController(time: time, lineCoordinates: lineCoordinates)
+        return MapViewController()
     }
 
     func updateUIViewController(_ uiViewController: MapViewController, context: Context) { }

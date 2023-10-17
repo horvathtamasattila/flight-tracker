@@ -6,18 +6,9 @@ struct ContentView: View {
     @StateObject var timer = MyTimer()
     @StateObject var viewModel = MapViewModel.shared
 
-    let tfs = CLLocationCoordinate2D(latitude: 28.047477135170762, longitude: -16.572272806214418)
-    let london = CLLocationCoordinate2D(latitude: 51.507277135170762, longitude: 0.127672806214418)
-    private var lineCoordinates: [CLLocationCoordinate2D]
-    init() {
-        self.lineCoordinates = [tfs, london]
-    }
   var body: some View {
       ZStack {
-          MapView(
-            time: time,
-            lineCoordinates: lineCoordinates
-          )
+          MapView()
           .edgesIgnoringSafeArea(.all)
           .onReceive(timer.currentTimePublisher) { newCurrentTime in
               self.time += 1

@@ -14,8 +14,8 @@
             filePath = "FlightTracker/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "searchResultRowDidTap(result:)"
             landmarkType = "7">
             <Locations>
@@ -108,8 +108,8 @@
             filePath = "FlightTracker/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "searchResultRowDidTap(result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -124,9 +124,9 @@
             filePath = "FlightTracker/MapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "init(time:lineCoordinates:)"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "init()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -172,9 +172,9 @@
             filePath = "FlightTracker/MapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "init(time:lineCoordinates:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "init()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -235,8 +235,8 @@
             filePath = "FlightTracker/MapView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "mapView(_:rendererFor:)"
             landmarkType = "7">
             <Locations>

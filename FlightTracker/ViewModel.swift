@@ -33,7 +33,11 @@ class MapViewModel: ObservableObject {
 
     func searchResultRowDidTap(result: String) {
         searchText = ""
-        selectedCities.append(listOfCities.first { $0.name == result }!)
+        if selectedCities.count <= 1 {
+            selectedCities.append(listOfCities.first { $0.name == result }!)
+        } else {
+            selectedCities[1] = listOfCities.first { $0.name == result }!
+        }
         //print(selectedCities)
 
 //            let url = URL(string: "http://sampleurl.com/pages")!
