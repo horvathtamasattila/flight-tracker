@@ -4,7 +4,7 @@ import MapKit
 struct ContentView: View {
     @State private var time = 0
     @StateObject var timer = MyTimer()
-    @StateObject var viewModel = MapViewModel()
+    @StateObject var viewModel = MapViewModel.shared
 
     let tfs = CLLocationCoordinate2D(latitude: 28.047477135170762, longitude: -16.572272806214418)
     let london = CLLocationCoordinate2D(latitude: 51.507277135170762, longitude: 0.127672806214418)

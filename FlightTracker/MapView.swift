@@ -1,15 +1,25 @@
+import Combine
 import SwiftUI
 import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     let mapView: MKMapView
     let polyline: MKGeodesicPolyline
+    let viewModel = MapViewModel.shared
+
+    var cancellables: Set<AnyCancellable> = []
 
     init(time: Int, lineCoordinates: [CLLocationCoordinate2D]) {
         self.mapView = MKMapView()
         self.polyline = MKGeodesicPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)
         super.init(nibName: nil, bundle: nil)
         view = mapView
+
+        viewModel.$selectedResults
+            .sink {
+                print($0)
+            }
+            .store(in: &cancellables)
     }
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {

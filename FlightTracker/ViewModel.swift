@@ -8,6 +8,8 @@ class MapViewModel: ObservableObject {
 
     private var cancellables = Set<AnyCancellable>()
 
+    static let shared = MapViewModel()
+
     init() {
         unowned let unownedSelf = self
         $searchText
