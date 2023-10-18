@@ -18,6 +18,8 @@
 		029DA91F2AD9779E006D89BF /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DA91E2AD9779E006D89BF /* Timer.swift */; };
 		02FAE2F82ADE82EA00BA2AFA /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE2F72ADE82EA00BA2AFA /* City.swift */; };
 		02FAE2FA2ADE8CF800BA2AFA /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 02FAE2F92ADE8CF800BA2AFA /* Cities.json */; };
+		02FAE3162ADFFBD300BA2AFA /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE3152ADFFBD300BA2AFA /* Route.swift */; };
+		02FAE3182AE0007500BA2AFA /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE3172AE0007500BA2AFA /* Airport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		029DA91E2AD9779E006D89BF /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		02FAE2F72ADE82EA00BA2AFA /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		02FAE2F92ADE8CF800BA2AFA /* Cities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
+		02FAE3152ADFFBD300BA2AFA /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		02FAE3172AE0007500BA2AFA /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,8 @@
 				028A08EB2ADD739100DC1F57 /* SearchResultElements.swift */,
 				02FAE2F72ADE82EA00BA2AFA /* City.swift */,
 				02FAE2F92ADE8CF800BA2AFA /* Cities.json */,
+				02FAE3152ADFFBD300BA2AFA /* Route.swift */,
+				02FAE3172AE0007500BA2AFA /* Airport.swift */,
 			);
 			path = FlightTracker;
 			sourceTree = "<group>";
@@ -159,10 +165,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02FAE3162ADFFBD300BA2AFA /* Route.swift in Sources */,
 				028A08E82ADD641B00DC1F57 /* ViewModel.swift in Sources */,
 				028A08EC2ADD739100DC1F57 /* SearchResultElements.swift in Sources */,
 				029DA9112AD6C309006D89BF /* ContentView.swift in Sources */,
 				029DA91D2AD6C7E7006D89BF /* MapView.swift in Sources */,
+				02FAE3182AE0007500BA2AFA /* Airport.swift in Sources */,
 				029DA90F2AD6C309006D89BF /* FlightTrackerApp.swift in Sources */,
 				029DA91F2AD9779E006D89BF /* Timer.swift in Sources */,
 				02FAE2F82ADE82EA00BA2AFA /* City.swift in Sources */,

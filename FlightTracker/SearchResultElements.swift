@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SearchResultElementView: View {
     var searchResults: [String]
-    let rowTapped: (String) -> Void
+    let rowTapped: (String) async -> Void
     var body: some View {
         ZStack(alignment: .top) {
             Color.white
@@ -17,17 +17,12 @@ struct SearchResultElementView: View {
                             Divider()
                         }
                         .onTapGesture {
-                            rowTapped(result)
+                            Task { await rowTapped(result) }
                             hideKeyboard()
                         }
                     }
                 }
             })
-                .simultaneousGesture(
-                    DragGesture().onChanged { _ in
-                        hideKeyboard()
-                    }
-                )
         }
         .edgesIgnoringSafeArea(.bottom)
         .animation(searchResults.count > 1 ? .linear(duration: 0.1) : nil)

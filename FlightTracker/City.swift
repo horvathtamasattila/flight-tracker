@@ -7,6 +7,7 @@ struct CityResponse: Decodable {
 struct City: Decodable {
     let name: String
     let city_code: String
+    var airport: Airport?
     let lat: Double
     let lng: Double
 }
