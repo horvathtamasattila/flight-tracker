@@ -7,6 +7,8 @@ class MapViewModel: ObservableObject {
     @Published var isFlightModeOn: Bool = false
     @Published var searchResults: [String] = []
     @Published var selectedCities: [City] = []
+    @Published var selectedRoute: Route?
+    @Published var counter: Int = 0
 
     private var timer: MyTimer?
     private let listOfCities: [City]
@@ -35,7 +37,11 @@ class MapViewModel: ObservableObject {
                     let arrIata = cities[1].airport!.iata_code!
                     let url = URL(string: "https://airlabs.co/api/v9/routes?api_key=b936de64-13c7-4af7-8f15-cae554ba9726&dep_iata=\(depIata)&arr_iata=\(arrIata)")!
                     let (data, _) = try! await URLSession.shared.data(from: url)
-                    let result = try JSONDecoder().decode(RouteResponse.self, from: data).response.sorted(by: { $0.duration > $1.duration })
+                    let results = try JSONDecoder().decode(RouteResponse.self, from: data).response.sorted(by: { $0.duration > $1.duration })
+                    DispatchQueue.main.async {
+                        self.selectedRoute = results[results.count / 2]
+                        self.counter = results[results.count / 2 - 1].duration * 60
+                    }
                 }
             }
             .store(in: &cancellables)
@@ -49,7 +55,6 @@ class MapViewModel: ObservableObject {
     func searchResultRowDidTap(result: String) async {
         searchText = ""
         guard var city = listOfCities.first(where: { $0.name == result }) else { return }
-        print(city)
         let url = URL(string: "https://airlabs.co/api/v9/nearby?lat=\(city.lat)&lng=\(city.lng)&distance=50&api_key=b936de64-13c7-4af7-8f15-cae554ba9726")!
         let (data, _) = try! await URLSession.shared.data(from: url)
         let apiResult = try! JSONDecoder().decode(AirportResponse.self, from: data).response.airports.filter { $0.iata_code != nil }.sorted { $0.popularity > $1.popularity }
@@ -63,7 +68,13 @@ class MapViewModel: ObservableObject {
     }
 
     func toggleFlightMode() {
+        unowned let unownedSelf = self
         isFlightModeOn.toggle()
-        
+        timer = MyTimer()
+        timer!.currentTimePublisher
+            .sink { _ in
+                unownedSelf.counter -= 60
+            }
+            .store(in: &cancellables)
     }
 }

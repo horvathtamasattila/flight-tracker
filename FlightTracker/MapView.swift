@@ -31,7 +31,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
                 if cities.count >= 2 {
                     let polyline = MKGeodesicPolyline(coordinates: cities.map { CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lng) }, count: cities.count)
-                    print(polyline.coordinates)
                     unownedSelf.mapView.addOverlay(polyline)
                 }
             }
