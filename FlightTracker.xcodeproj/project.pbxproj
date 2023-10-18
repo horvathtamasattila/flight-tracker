@@ -20,6 +20,7 @@
 		02FAE2FA2ADE8CF800BA2AFA /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 02FAE2F92ADE8CF800BA2AFA /* Cities.json */; };
 		02FAE3162ADFFBD300BA2AFA /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE3152ADFFBD300BA2AFA /* Route.swift */; };
 		02FAE3182AE0007500BA2AFA /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE3172AE0007500BA2AFA /* Airport.swift */; };
+		02FAE31A2AE01D5400BA2AFA /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE3192AE01D5400BA2AFA /* Button.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		02FAE2F92ADE8CF800BA2AFA /* Cities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
 		02FAE3152ADFFBD300BA2AFA /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		02FAE3172AE0007500BA2AFA /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
+		02FAE3192AE01D5400BA2AFA /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				02FAE2F92ADE8CF800BA2AFA /* Cities.json */,
 				02FAE3152ADFFBD300BA2AFA /* Route.swift */,
 				02FAE3172AE0007500BA2AFA /* Airport.swift */,
+				02FAE3192AE01D5400BA2AFA /* Button.swift */,
 			);
 			path = FlightTracker;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				029DA91F2AD9779E006D89BF /* Timer.swift in Sources */,
 				02FAE2F82ADE82EA00BA2AFA /* City.swift in Sources */,
 				028A08EA2ADD6E2E00DC1F57 /* SearchBar.swift in Sources */,
+				02FAE31A2AE01D5400BA2AFA /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

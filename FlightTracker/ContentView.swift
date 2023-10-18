@@ -2,17 +2,12 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
-    @State private var time = 0
-    @StateObject var timer = MyTimer()
     @StateObject var viewModel = MapViewModel.shared
 
   var body: some View {
       ZStack {
           MapView()
           .edgesIgnoringSafeArea(.all)
-          .onReceive(timer.currentTimePublisher) { newCurrentTime in
-              self.time += 1
-          }
           VStack(spacing: .zero) {
               SearchBar(
                 isEditing: $viewModel.isEditingSearchbar,
@@ -28,6 +23,12 @@ struct ContentView: View {
               .opacity(viewModel.isEditingSearchbar ? 1 : 0)
               //.animation(.easeOut(duration: 0.25))
           }
+          VStack {
+              Spacer()
+              FTButton(text: "Takeoff", action: {})
+          }
+          .padding(.horizontal, 16)
+          .padding(.bottom, 48)
       }
   }
 }

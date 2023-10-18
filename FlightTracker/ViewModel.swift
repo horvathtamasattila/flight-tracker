@@ -4,20 +4,21 @@ import Foundation
 class MapViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var isEditingSearchbar: Bool = false
+    @Published var isFlightModeOn: Bool = false
     @Published var searchResults: [String] = []
     @Published var selectedCities: [City] = []
 
+    private var timer: MyTimer?
     private let listOfCities: [City]
     private var cancellables = Set<AnyCancellable>()
 
     static let shared = MapViewModel()
 
     init() {
-        let decoder = JSONDecoder()
         let url = Bundle.main.url(forResource: "Cities", withExtension: "json")
         let data = try! Data(contentsOf: url!)
-        let result = try! decoder.decode(CityResponse.self, from: data)
-        listOfCities = result.response
+        let result = try! JSONDecoder().decode(CityResponse.self, from: data)
+        self.listOfCities = result.response
 
         unowned let unownedSelf = self
         $searchText
@@ -30,12 +31,11 @@ class MapViewModel: ObservableObject {
             .filter { $0.count == 2 }
             .sink { cities in
                 Task {
-                    let dep = cities[0]
-                    let arr = cities[1]
-                    let url = URL(string: "https://airlabs.co/api/v9/routes?api_key=b936de64-13c7-4af7-8f15-cae554ba9726&dep_iata=\(dep.city_code)&arr_iata=\(arr.city_code)")!
+                    let depIata = cities[0].airport!.iata_code!
+                    let arrIata = cities[1].airport!.iata_code!
+                    let url = URL(string: "https://airlabs.co/api/v9/routes?api_key=b936de64-13c7-4af7-8f15-cae554ba9726&dep_iata=\(depIata)&arr_iata=\(arrIata)")!
                     let (data, _) = try! await URLSession.shared.data(from: url)
-                    let result = try JSONDecoder().decode(RouteResponse.self, from: data)
-                    print(result)
+                    let result = try JSONDecoder().decode(RouteResponse.self, from: data).response.sorted(by: { $0.duration > $1.duration })
                 }
             }
             .store(in: &cancellables)
@@ -60,5 +60,10 @@ class MapViewModel: ObservableObject {
         } else {
             selectedCities[1] = city
         }
+    }
+
+    func toggleFlightMode() {
+        isFlightModeOn.toggle()
+        
     }
 }

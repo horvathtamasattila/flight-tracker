@@ -1,9 +1,9 @@
 import Combine
 import SwiftUI
 
-class MyTimer: ObservableObject {
-    let currentTimePublisher = Timer.TimerPublisher(interval: 1, runLoop: .main, mode: .default)
-    let cancellable: AnyCancellable?
+class MyTimer {
+    var currentTimePublisher = Timer.TimerPublisher(interval: 1, runLoop: .main, mode: .common)
+    var cancellable: AnyCancellable?
 
     init() {
         self.cancellable = currentTimePublisher.connect() as? AnyCancellable
