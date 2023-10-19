@@ -4,12 +4,15 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     let mapView: MKMapView
+    var planeMarker: MKPointAnnotation?
+    var polyline: MKGeodesicPolyline
     let viewModel = MapViewModel.shared
 
     var cancellables: Set<AnyCancellable> = []
 
     init() {
         self.mapView = MKMapView()
+        self.polyline = MKGeodesicPolyline()
         super.init(nibName: nil, bundle: nil)
         mapView.delegate = self
         view = mapView
@@ -29,9 +32,25 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     unownedSelf.mapView.addAnnotation(annotation)
                 }
 
-                if cities.count >= 2 {
-                    let polyline = MKGeodesicPolyline(coordinates: cities.map { CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lng) }, count: cities.count)
-                    unownedSelf.mapView.addOverlay(polyline)
+                if cities.count == 2 {
+                    unownedSelf.polyline = MKGeodesicPolyline(coordinates: cities.map { CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lng) }, count: cities.count)
+                    unownedSelf.mapView.addOverlay(unownedSelf.polyline)
+                    let planeMarkerr = MKPointAnnotation()
+                    planeMarkerr.coordinate = CLLocationCoordinate2D(latitude: unownedSelf.polyline.coordinates.first!.latitude, longitude: unownedSelf.polyline.coordinates.first!.longitude)
+                    planeMarkerr.title = "Current Location"
+                    unownedSelf.mapView.addAnnotation(planeMarkerr)
+                    unownedSelf.planeMarker = planeMarkerr
+                    UIView.animate(withDuration: 0.5) {
+                        unownedSelf.mapView.region = MKCoordinateRegion(coordinates: cities.map { CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lng) })
+                    }
+                }
+            }
+            .store(in: &cancellables)
+
+        viewModel.$counter
+            .sink { time in
+                UIView.animate(withDuration: 0.5) {
+                    unownedSelf.planeMarker?.coordinate = unownedSelf.polyline.coordinates[-time + 9600]
                 }
             }
             .store(in: &cancellables)
@@ -61,39 +80,8 @@ struct MapView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: MapViewController, context: Context) { }
 }
 
-//struct MapView: UIViewRepresentable {
-//  let time: Int
-//  let lineCoordinates: [CLLocationCoordinate2D]
-//
-//  func makeUIView(context: Context) -> MKMapView {
-//    let mapView = MKMapView()
-//    mapView.delegate = context.coordinator
-//    mapView.region = MKCoordinateRegion(coordinates: lineCoordinates)
-//
-//    let polyline = MKGeodesicPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)
-//      mapView.addOverlay(polyline)
-//      let annotation = MKPointAnnotation()
-//      annotation.coordinate = polyline.coordinates[polyline.coordinates.count / 100 * time]
-//      annotation.title = "Current position"
-//      mapView.addAnnotation(annotation)
-//
-//    return mapView
-//  }
-//
-//  func updateUIView(_ view: MKMapView, context: Context) {
-//      view.removeAnnotation(view.annotations.last!)
-//      let polyline = (view.overlays.first(where: { $0 is MKPolyline })) as! MKPolyline
-//      let annotation = MKPointAnnotation()
-//      annotation.coordinate = polyline.coordinates[polyline.coordinates.count / 100 * time]
-//      annotation.title = "Current position"
-//      view.addAnnotation(annotation)
-//      print(time)
-//  }
-//
-//}
-
 extension MKCoordinateRegion {
-    init(coordinates: [CLLocationCoordinate2D], spanMultiplier: CLLocationDistance = 1.3) {
+    init(coordinates: [CLLocationCoordinate2D], spanMultiplier: CLLocationDistance = 1.2) {
         var topLeftCoord = CLLocationCoordinate2D(latitude: -90, longitude: 180)
         var bottomRightCoord = CLLocationCoordinate2D(latitude: 90, longitude: -180)
 
