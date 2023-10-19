@@ -10,8 +10,8 @@ class MapViewModel: ObservableObject {
     @Published var selectedRoute: Route?
     @Published var counter: Int = 0
 
-    private var timer: MyTimer?
     private let listOfCities: [City]
+    private var timer: Timer?
     private var cancellables = Set<AnyCancellable>()
 
     static let shared = MapViewModel()
@@ -70,11 +70,12 @@ class MapViewModel: ObservableObject {
     func toggleFlightMode() {
         unowned let unownedSelf = self
         isFlightModeOn.toggle()
-        timer = MyTimer()
-        timer!.currentTimePublisher
-            .sink { _ in
-                unownedSelf.counter -= 60
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            unownedSelf.counter -= 1
+            print(unownedSelf.counter)
+            if unownedSelf.counter <= 0 {
+                timer.invalidate()
             }
-            .store(in: &cancellables)
+        }
     }
 }

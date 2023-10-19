@@ -7,64 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4BEFADDE-6EBE-47C4-AD81-374F936B454F"
-            shouldBeEnabled = "Yes"
+            uuid = "FCBCD751-60B5-4A36-97AE-02639AF28409"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlightTracker/ViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "toggleFlightMode()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4BEFADDE-6EBE-47C4-AD81-374F936B454F - 367acc3b5b4eea55"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlightTracker.MapViewModel.toggleFlightMode() -&gt; ()"
-                  moduleName = "FlightTracker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tamas/Documents/sources/FlightTracker/FlightTracker/ViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "592">
-               </Location>
-               <Location
-                  uuid = "4BEFADDE-6EBE-47C4-AD81-374F936B454F - f981f67a0388625c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Foundation.Date) -&gt; () in FlightTracker.MapViewModel.toggleFlightMode() -&gt; ()"
-                  moduleName = "FlightTracker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tamas/Documents/sources/FlightTracker/FlightTracker/ViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "4BEFADDE-6EBE-47C4-AD81-374F936B454F - f981f67a038862b3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Foundation.Date) -&gt; () in FlightTracker.MapViewModel.toggleFlightMode() -&gt; ()"
-                  moduleName = "FlightTracker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tamas/Documents/sources/FlightTracker/FlightTracker/ViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
