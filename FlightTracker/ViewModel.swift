@@ -10,6 +10,7 @@ class MapViewModel: ObservableObject {
     @Published var selectedRoute: Route?
     @Published var counter: Int = 0
 
+    var startTime: Int = 0
     private let listOfCities: [City]
     var timer: Timer?
     private var cancellables = Set<AnyCancellable>()
@@ -40,7 +41,8 @@ class MapViewModel: ObservableObject {
                     let results = try JSONDecoder().decode(RouteResponse.self, from: data).response.sorted(by: { $0.duration > $1.duration })
                     DispatchQueue.main.async {
                         self.selectedRoute = results[results.count / 2]
-                        self.counter = results[results.count / 2 - 1].duration * 60
+                        self.counter = results[results.count / 2].duration * 60
+                        self.startTime = self.counter
                     }
                 }
             }
@@ -71,7 +73,7 @@ class MapViewModel: ObservableObject {
         unowned let unownedSelf = self
         isFlightModeOn.toggle()
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            unownedSelf.counter -= 60
+            unownedSelf.counter -= 1
             if unownedSelf.counter <= 0 {
                 timer.invalidate()
             }

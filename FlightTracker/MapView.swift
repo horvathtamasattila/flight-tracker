@@ -48,9 +48,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             .store(in: &cancellables)
 
         viewModel.$counter
+            .filter { _ in self.polyline.coordinates.count > 0 && self.viewModel.startTime > 0 }
             .sink { time in
+                let idx = Int(modf(Double(self.polyline.coordinates.count) / Double(self.viewModel.startTime) * (Double(self.viewModel.startTime) + Double(-time))).0)
+                print(idx)
                 UIView.animate(withDuration: 0.5) {
-                    unownedSelf.planeMarker?.coordinate = unownedSelf.polyline.coordinates[-time + 9600]
+                    unownedSelf.planeMarker?.coordinate = unownedSelf.polyline.coordinates[min(idx, self.polyline.coordinates.count - 1)]
                 }
             }
             .store(in: &cancellables)
