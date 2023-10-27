@@ -1,5 +1,6 @@
 import Combine
 import Foundation
+import UIKit
 
 class MapViewModel: ObservableObject {
     @Published var searchText: String = ""
@@ -11,6 +12,8 @@ class MapViewModel: ObservableObject {
     @Published var counter: Int = 0
 
     var startTime: Int = 0
+    private var startDate = Date()
+    private var backgroundDate = Date()
     private let listOfCities: [City]
     var timer: Timer?
     private var cancellables = Set<AnyCancellable>()
@@ -47,6 +50,14 @@ class MapViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+
+        NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [unowned self] notification in
+            backgroundDate = Date()
+        }
+
+        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] notification in
+            counter += Int(backgroundDate.timeIntervalSinceNow)
+        }
     }
 
     func deleteDidTap() {
@@ -78,5 +89,7 @@ class MapViewModel: ObservableObject {
                 timer.invalidate()
             }
         }
+
+        startDate = Date()
     }
 }

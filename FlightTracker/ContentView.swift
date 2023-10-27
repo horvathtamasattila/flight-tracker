@@ -15,7 +15,9 @@ struct ContentView: View {
                 placeholder: "Search",
                 deleteDidTap: viewModel.deleteDidTap
               )
-                  .background(Color.green)
+              .background(Color.green)
+              .visible(!viewModel.isFlightModeOn)
+
               SearchResultElementView(
                   searchResults: viewModel.searchResults,
                   rowTapped: viewModel.searchResultRowDidTap
@@ -33,6 +35,7 @@ struct ContentView: View {
                   .padding(.top, 80)
               Spacer()
               FTButton(text: "Takeoff", action: viewModel.toggleFlightMode)
+                  .visible(!viewModel.isFlightModeOn)
           }
           .padding(.horizontal, 16)
           .padding(.bottom, 48)

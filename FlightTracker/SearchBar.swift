@@ -116,13 +116,11 @@ extension Color {
 }
 
 extension View {
-    @ViewBuilder func visible(_ visible: Bool, remove: Bool = true) -> some View {
+    @ViewBuilder func visible(_ visible: Bool) -> some View {
         if visible {
             self
         } else {
-            if !remove {
-                self.hidden()
-            }
+            EmptyView()
         }
     }
 

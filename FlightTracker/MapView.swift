@@ -35,11 +35,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 if cities.count == 2 {
                     unownedSelf.polyline = MKGeodesicPolyline(coordinates: cities.map { CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lng) }, count: cities.count)
                     unownedSelf.mapView.addOverlay(unownedSelf.polyline)
-                    let planeMarkerr = MKPointAnnotation()
-                    planeMarkerr.coordinate = CLLocationCoordinate2D(latitude: unownedSelf.polyline.coordinates.first!.latitude, longitude: unownedSelf.polyline.coordinates.first!.longitude)
-                    planeMarkerr.title = "Current Location"
-                    unownedSelf.mapView.addAnnotation(planeMarkerr)
-                    unownedSelf.planeMarker = planeMarkerr
+                    let planeMarkerAnnotation = MKPointAnnotation()
+                    planeMarkerAnnotation.coordinate = CLLocationCoordinate2D(latitude: unownedSelf.polyline.coordinates.first!.latitude, longitude: unownedSelf.polyline.coordinates.first!.longitude)
+                    planeMarkerAnnotation.title = "Current Location"
+                    let planeMarker = MKAnnotationView(annotation: planeMarkerAnnotation, reuseIdentifier: "PlaneMarker")
+                    planeMarker.canShowCallout = true
+                    planeMarker.image = UIImage(named: "plane")
+                    
+                    unownedSelf.mapView.addAnnotation(planeMarkerAnnotation)
+                    unownedSelf.planeMarker = planeMarkerAnnotation
                     UIView.animate(withDuration: 0.5) {
                         unownedSelf.mapView.region = MKCoordinateRegion(coordinates: cities.map { CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lng) })
                     }
@@ -67,6 +71,28 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         return renderer
       }
       return MKOverlayRenderer()
+    }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if !(annotation is MKPointAnnotation) {
+            return nil
+        }
+
+        guard annotation.title == "Current Location" else { return nil }
+        let annotationIdentifier = "PlaneMarker"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView!.canShowCallout = true
+        }
+        else {
+            annotationView!.annotation = annotation
+        }
+
+        let pinImage = UIImage(named: "plane")
+        annotationView!.image = pinImage
+        return annotationView
     }
 
     @available(*, unavailable)
