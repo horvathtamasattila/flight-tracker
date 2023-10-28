@@ -38,9 +38,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     let planeMarkerAnnotation = MKPointAnnotation()
                     planeMarkerAnnotation.coordinate = CLLocationCoordinate2D(latitude: unownedSelf.polyline.coordinates.first!.latitude, longitude: unownedSelf.polyline.coordinates.first!.longitude)
                     planeMarkerAnnotation.title = "Current Location"
-                    let planeMarker = MKAnnotationView(annotation: planeMarkerAnnotation, reuseIdentifier: "PlaneMarker")
-                    planeMarker.canShowCallout = true
-                    planeMarker.image = UIImage(named: "plane")
                     
                     unownedSelf.mapView.addAnnotation(planeMarkerAnnotation)
                     unownedSelf.planeMarker = planeMarkerAnnotation
@@ -55,7 +52,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             .filter { _ in self.polyline.coordinates.count > 0 && self.viewModel.startTime > 0 }
             .sink { time in
                 let idx = Int(modf(Double(self.polyline.coordinates.count) / Double(self.viewModel.startTime) * (Double(self.viewModel.startTime) + Double(-time))).0)
-                print(idx)
                 UIView.animate(withDuration: 0.5) {
                     unownedSelf.planeMarker?.coordinate = unownedSelf.polyline.coordinates[min(idx, self.polyline.coordinates.count - 1)]
                 }

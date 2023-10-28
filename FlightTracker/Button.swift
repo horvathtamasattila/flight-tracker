@@ -30,9 +30,9 @@ public struct FTButton: View {
             }
         )
         .disabled(!isEnabled)
-        .background(Color.green)
+        .background(Color.blue)
         .opacity(isEnabled ? 1 : 0.4)
-        .cornerRadius(8)
+        //.cornerRadius(8)
         .buttonStyle(DefaultButtonStyle())
     }
 }

@@ -16,6 +16,7 @@
 		029DA9162AD6C30A006D89BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029DA9152AD6C30A006D89BF /* Preview Assets.xcassets */; };
 		029DA91D2AD6C7E7006D89BF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DA91C2AD6C7E7006D89BF /* MapView.swift */; };
 		029DA91F2AD9779E006D89BF /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DA91E2AD9779E006D89BF /* Timer.swift */; };
+		02F506B42AECFC800051B195 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F506B32AECFC800051B195 /* TestView.swift */; };
 		02FAE2F82ADE82EA00BA2AFA /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE2F72ADE82EA00BA2AFA /* City.swift */; };
 		02FAE2FA2ADE8CF800BA2AFA /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 02FAE2F92ADE8CF800BA2AFA /* Cities.json */; };
 		02FAE3162ADFFBD300BA2AFA /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE3152ADFFBD300BA2AFA /* Route.swift */; };
@@ -34,6 +35,7 @@
 		029DA9152AD6C30A006D89BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		029DA91C2AD6C7E7006D89BF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		029DA91E2AD9779E006D89BF /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		02F506B32AECFC800051B195 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		02FAE2F72ADE82EA00BA2AFA /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		02FAE2F92ADE8CF800BA2AFA /* Cities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
 		02FAE3152ADFFBD300BA2AFA /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				02FAE3152ADFFBD300BA2AFA /* Route.swift */,
 				02FAE3172AE0007500BA2AFA /* Airport.swift */,
 				02FAE3192AE01D5400BA2AFA /* Button.swift */,
+				02F506B32AECFC800051B195 /* TestView.swift */,
 			);
 			path = FlightTracker;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02F506B42AECFC800051B195 /* TestView.swift in Sources */,
 				02FAE3162ADFFBD300BA2AFA /* Route.swift in Sources */,
 				028A08E82ADD641B00DC1F57 /* ViewModel.swift in Sources */,
 				028A08EC2ADD739100DC1F57 /* SearchResultElements.swift in Sources */,

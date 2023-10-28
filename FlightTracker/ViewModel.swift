@@ -93,3 +93,11 @@ class MapViewModel: ObservableObject {
         startDate = Date()
     }
 }
+
+
+extension Array {
+    @inlinable public var second: Element? {
+        guard self.count >= 2 else { return nil }
+        return self[1]
+    }
+}
