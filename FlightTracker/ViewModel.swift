@@ -97,8 +97,8 @@ class MapViewModel: ObservableObject {
 
     func modifyFlightTime() {
         guard let flightTime = Int(manualFlightTime) else { return }
-        counter = flightTime * 60
-        startTime = counter
+        startTime = flightTime * 60
+        counter = startTime
     }
 }
 
