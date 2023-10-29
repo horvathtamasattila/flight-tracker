@@ -10,6 +10,8 @@ class MapViewModel: ObservableObject {
     @Published var selectedCities: [City] = []
     @Published var selectedRoute: Route?
     @Published var counter: Int = 0
+    @Published var isShowingInputSheet = false
+    @Published var manualFlightTime = ""
 
     var startTime: Int = 0
     private var startDate = Date()
@@ -91,6 +93,12 @@ class MapViewModel: ObservableObject {
         }
 
         startDate = Date()
+    }
+
+    func modifyFlightTime() {
+        guard let flightTime = Int(manualFlightTime) else { return }
+        counter = flightTime * 60
+        startTime = counter
     }
 }
 

@@ -23,39 +23,30 @@ struct ContentView: View {
                   rowTapped: viewModel.searchResultRowDidTap
               )
               .opacity(viewModel.isEditingSearchbar ? 1 : 0)
-              .animation(.easeOut(duration: 0.25))
+              .animation(.easeOut(duration: 0.1))
           }
           VStack(spacing: .zero) {
-//              Text(String(format: "%02d:%02d", (viewModel.counter / 3600), (viewModel.counter % 3600 / 60)))
-//                  .font(.largeTitle)
-//                  .foregroundColor(.white)
-//                  .padding(8)
-//                  .background(Color.green)
-//                  .cornerRadius(16)
-//                  .padding(.top, 80)
-//              Spacer()
-//              bottomCard
               Spacer()
               bottomCard
-//              FTButton(text: "Takeoff", action: viewModel.toggleFlightMode)
-//                  .visible(!viewModel.isFlightModeOn)
           }
-          //.padding(.bottom, 48)
           .edgesIgnoringSafeArea(.all)
-          //.visible(viewModel.selectedRoute != nil)
       }
+      .alert(
+        "Update flight time",
+        isPresented: $viewModel.isShowingInputSheet,
+        actions: {
+            TextField("Minutes", text: $viewModel.manualFlightTime)
+            Button("OK", action: { viewModel.modifyFlightTime() })
+            Button("Cancel", action: {})
+        },
+        message: { Text("Before taking off the captain usually mentiones the expected flight time. Listen to the announcement and change the flight time to have a more realistic position during the flight.") }
+      )
   }
 
     var bottomCard: some View {
-//        VStack {
-//            Text(viewModel.selectedCities.first?.city_code ?? "")
-//            Text(viewModel.selectedCities.second?.city_code ?? "")
-//        }
-//        .visible(viewModel.selectedRoute != nil)
-        CustomShape(cutoutModifier: !viewModel.isFlightModeOn ? 118.0: 250)
+        CustomShape(cutoutModifier: !viewModel.isFlightModeOn ? 118: 250)
             .fill(Color.purple, style: FillStyle(eoFill: true, antialiased: true))
             .overlay(
-
         VStack(spacing: .zero) {
             HStack(spacing: .zero) {
                 VStack(alignment: .leading) {
@@ -77,6 +68,9 @@ struct ContentView: View {
                                 .frame(width: 60, height: 60)
                         )
                     Text(String(format: "%02d hrs %02d min", (viewModel.counter / 3600), (viewModel.counter % 3600 / 60)))
+                }
+                .onTapGesture {
+                    viewModel.isShowingInputSheet = true
                 }
                 Spacer()
                 VStack(alignment: .leading) {
