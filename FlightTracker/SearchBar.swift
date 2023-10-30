@@ -29,7 +29,7 @@ public struct SearchBar: View {
     public var body: some View {
         HStack(spacing: .zero) {
             TextField(placeholder, text: $text)
-                //.font(.body2)
+                .font(.font(type: .regular, size: 14))
                 .padding(.leading, 48)
                 .padding(.vertical, 12)
                 .overlay(
@@ -90,7 +90,7 @@ public struct SearchBar: View {
                 cancelDidTap?()
                 hideKeyboard()
             })
-            //.font(.body2)
+            .font(.font(type: .regular, size: 12))
             .foregroundColor(.neutral1)
             .padding(.leading, 16)
             .transition(.move(edge: .trailing))
@@ -109,10 +109,6 @@ struct SearchBar_Previews: PreviewProvider {
             cancelDidTap: {}
         )
     }
-}
-
-extension Color {
-    static let neutral1 = Color.white
 }
 
 extension View {

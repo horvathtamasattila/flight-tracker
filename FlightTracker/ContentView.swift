@@ -29,6 +29,12 @@ struct ContentView: View {
               Spacer()
               bottomCard
           }
+          .onAppear {
+              for family in UIFont.familyNames.sorted() {
+                  let names = UIFont.fontNames(forFamilyName: family)
+                  print("Family: \(family) Font names: \(names)")
+              }
+          }
           .edgesIgnoringSafeArea(.all)
       }
       .alert(
@@ -44,17 +50,21 @@ struct ContentView: View {
   }
 
     var bottomCard: some View {
-        CustomShape(cutoutModifier: !viewModel.isFlightModeOn ? 118: 250)
-            .fill(Color.purple, style: FillStyle(eoFill: true, antialiased: true))
+        CustomShape(cutoutModifier: !viewModel.isFlightModeOn ? 94 : 250)
+            .fill(Color.background, style: FillStyle(eoFill: true, antialiased: true))
             .overlay(
         VStack(spacing: .zero) {
             HStack(spacing: .zero) {
                 VStack(alignment: .leading) {
                     Text(viewModel.selectedCities.first?.city_code ?? "")
-                        .font(.largeTitle)
+                        .font(.font(type: .bold, size: 56))
+                        .foregroundColor(.white)
+                        .padding(.bottom, 8)
                     Text(viewModel.selectedCities.first?.name ?? "")
+                        .font(.font(type: .regular, size: 16))
+                        .foregroundColor(.neutral1)
                 }
-                .padding(.leading, 40)
+                .padding(.leading, 16)
                 Spacer()
                 VStack(spacing: .zero) {
                     Image("airplane-logo")
@@ -67,37 +77,46 @@ struct ContentView: View {
                                 .stroke(style: StrokeStyle(lineWidth: 1, dash: [3]))
                                 .frame(width: 60, height: 60)
                         )
+                        .foregroundColor(.neutral2)
                     Text(String(format: "%02d hrs %02d min", (viewModel.counter / 3600), (viewModel.counter % 3600 / 60)))
+                        .foregroundColor(.neutral2)
                 }
                 .onTapGesture {
                     viewModel.isShowingInputSheet = true
                 }
                 Spacer()
-                VStack(alignment: .leading) {
+                VStack(alignment: .trailing) {
                     Text(viewModel.selectedCities.second?.city_code ?? "")
-                        .font(.largeTitle)
+                        .font(.font(type: .bold, size: 56))
+                        .foregroundColor(.white)
+                        .padding(.bottom, 8)
                     Text(viewModel.selectedCities.second?.name ?? "")
+                        .font(.font(type: .regular, size: 16))
+                        .foregroundColor(.neutral1)
                 }
-                .padding(.trailing, 40)
+                .padding(.trailing, 16)
             }
-            .padding(.vertical, 32)
+            .padding(.top, 32)
+            Spacer()
 
             Line()
               .stroke(style: StrokeStyle(lineWidth: 1, dash: [4]))
               .frame(height: 1)
+              .foregroundColor(.dash)
               .padding(.bottom, 20)
-              .padding(.horizontal, 16)
+              .padding(.horizontal, 24)
               .visible(!viewModel.isFlightModeOn)
 
             FTButton(text: "Takeoff", action: viewModel.toggleFlightMode)
                 .visible(!viewModel.isFlightModeOn)
                 .padding(.horizontal, 24)
-                .padding(.bottom, 20)
+                .padding(.bottom, 24)
         }
         )
-            .frame(width: UIScreen.main.bounds.width - 32, height: !viewModel.isFlightModeOn ? 280: 180)
+            .frame(width: UIScreen.main.bounds.width - 48, height: !viewModel.isFlightModeOn ? 280: 180)
             .cornerRadius(24)
-            .visible(viewModel.selectedRoute != nil)
+            .padding(.bottom, 24)
+            //.visible(viewModel.selectedRoute != nil)
             .animation(.easeOut(duration: 0.25))
     }
 }

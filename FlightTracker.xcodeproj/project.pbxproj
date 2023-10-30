@@ -17,6 +17,15 @@
 		029DA91D2AD6C7E7006D89BF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DA91C2AD6C7E7006D89BF /* MapView.swift */; };
 		029DA91F2AD9779E006D89BF /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029DA91E2AD9779E006D89BF /* Timer.swift */; };
 		02F506B42AECFC800051B195 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F506B32AECFC800051B195 /* TestView.swift */; };
+		02F506B92AEFF3C00051B195 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F506B82AEFF3C00051B195 /* Font+.swift */; };
+		02F506BB2AEFF64C0051B195 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02F506BA2AEFF64C0051B195 /* Colors.xcassets */; };
+		02F506BD2AEFF7C00051B195 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F506BC2AEFF7C00051B195 /* Color+.swift */; };
+		02F506BE2AEFFB0F0051B195 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02F506B62AEFF3260051B195 /* Poppins-Bold.ttf */; };
+		02F506BF2AEFFB120051B195 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02F506B52AEFF3260051B195 /* Poppins-Regular.ttf */; };
+		02F506C32AF003F40051B195 /* Orbitron-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02F506C02AF003F40051B195 /* Orbitron-Bold.ttf */; };
+		02F506C42AF003F40051B195 /* Orbitron-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02F506C12AF003F40051B195 /* Orbitron-Black.ttf */; };
+		02F506C52AF003F40051B195 /* Orbitron-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02F506C22AF003F40051B195 /* Orbitron-ExtraBold.ttf */; };
+		02F506CC2AF013FD0051B195 /* Amstrad-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02F506CB2AF013FD0051B195 /* Amstrad-Regular.otf */; };
 		02FAE2F82ADE82EA00BA2AFA /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE2F72ADE82EA00BA2AFA /* City.swift */; };
 		02FAE2FA2ADE8CF800BA2AFA /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 02FAE2F92ADE8CF800BA2AFA /* Cities.json */; };
 		02FAE3162ADFFBD300BA2AFA /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE3152ADFFBD300BA2AFA /* Route.swift */; };
@@ -36,6 +45,16 @@
 		029DA91C2AD6C7E7006D89BF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		029DA91E2AD9779E006D89BF /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		02F506B32AECFC800051B195 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		02F506B52AEFF3260051B195 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		02F506B62AEFF3260051B195 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		02F506B72AEFF38A0051B195 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		02F506B82AEFF3C00051B195 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
+		02F506BA2AEFF64C0051B195 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		02F506BC2AEFF7C00051B195 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		02F506C02AF003F40051B195 /* Orbitron-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Orbitron-Bold.ttf"; sourceTree = "<group>"; };
+		02F506C12AF003F40051B195 /* Orbitron-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Orbitron-Black.ttf"; sourceTree = "<group>"; };
+		02F506C22AF003F40051B195 /* Orbitron-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Orbitron-ExtraBold.ttf"; sourceTree = "<group>"; };
+		02F506CB2AF013FD0051B195 /* Amstrad-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amstrad-Regular.otf"; sourceTree = "<group>"; };
 		02FAE2F72ADE82EA00BA2AFA /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		02FAE2F92ADE8CF800BA2AFA /* Cities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
 		02FAE3152ADFFBD300BA2AFA /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -73,6 +92,7 @@
 		029DA90D2AD6C309006D89BF /* FlightTracker */ = {
 			isa = PBXGroup;
 			children = (
+				02F506B72AEFF38A0051B195 /* Info.plist */,
 				029DA90E2AD6C309006D89BF /* FlightTrackerApp.swift */,
 				029DA9102AD6C309006D89BF /* ContentView.swift */,
 				029DA9122AD6C30A006D89BF /* Assets.xcassets */,
@@ -88,6 +108,15 @@
 				02FAE3172AE0007500BA2AFA /* Airport.swift */,
 				02FAE3192AE01D5400BA2AFA /* Button.swift */,
 				02F506B32AECFC800051B195 /* TestView.swift */,
+				02F506B62AEFF3260051B195 /* Poppins-Bold.ttf */,
+				02F506B52AEFF3260051B195 /* Poppins-Regular.ttf */,
+				02F506B82AEFF3C00051B195 /* Font+.swift */,
+				02F506BA2AEFF64C0051B195 /* Colors.xcassets */,
+				02F506BC2AEFF7C00051B195 /* Color+.swift */,
+				02F506C12AF003F40051B195 /* Orbitron-Black.ttf */,
+				02F506C02AF003F40051B195 /* Orbitron-Bold.ttf */,
+				02F506C22AF003F40051B195 /* Orbitron-ExtraBold.ttf */,
+				02F506CB2AF013FD0051B195 /* Amstrad-Regular.otf */,
 			);
 			path = FlightTracker;
 			sourceTree = "<group>";
@@ -159,8 +188,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				02FAE2FA2ADE8CF800BA2AFA /* Cities.json in Resources */,
+				02F506BB2AEFF64C0051B195 /* Colors.xcassets in Resources */,
+				02F506BE2AEFFB0F0051B195 /* Poppins-Bold.ttf in Resources */,
+				02F506C52AF003F40051B195 /* Orbitron-ExtraBold.ttf in Resources */,
+				02F506BF2AEFFB120051B195 /* Poppins-Regular.ttf in Resources */,
 				029DA9162AD6C30A006D89BF /* Preview Assets.xcassets in Resources */,
+				02F506C32AF003F40051B195 /* Orbitron-Bold.ttf in Resources */,
+				02F506CC2AF013FD0051B195 /* Amstrad-Regular.otf in Resources */,
 				029DA9132AD6C30A006D89BF /* Assets.xcassets in Resources */,
+				02F506C42AF003F40051B195 /* Orbitron-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,8 +211,10 @@
 				02FAE3162ADFFBD300BA2AFA /* Route.swift in Sources */,
 				028A08E82ADD641B00DC1F57 /* ViewModel.swift in Sources */,
 				028A08EC2ADD739100DC1F57 /* SearchResultElements.swift in Sources */,
+				02F506B92AEFF3C00051B195 /* Font+.swift in Sources */,
 				029DA9112AD6C309006D89BF /* ContentView.swift in Sources */,
 				029DA91D2AD6C7E7006D89BF /* MapView.swift in Sources */,
+				02F506BD2AEFF7C00051B195 /* Color+.swift in Sources */,
 				02FAE3182AE0007500BA2AFA /* Airport.swift in Sources */,
 				029DA90F2AD6C309006D89BF /* FlightTrackerApp.swift in Sources */,
 				029DA91F2AD9779E006D89BF /* Timer.swift in Sources */,
@@ -314,6 +352,7 @@
 				DEVELOPMENT_TEAM = 7RAQ7W44J6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlightTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -344,6 +383,7 @@
 				DEVELOPMENT_TEAM = 7RAQ7W44J6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlightTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

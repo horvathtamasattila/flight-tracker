@@ -3,8 +3,8 @@ import SwiftUI
 struct BottomView: View {
     var body: some View {
         CustomShape(cutoutModifier: 20.0)
-            .fill(Color.purple, style: FillStyle(eoFill: true, antialiased: true))
-            .background(Color.purple)
+            .fill(Color.background, style: FillStyle(eoFill: true, antialiased: true))
+            .background(Color.background)
             .frame(width: 200, height: 200, alignment: .center)
     }
 }
